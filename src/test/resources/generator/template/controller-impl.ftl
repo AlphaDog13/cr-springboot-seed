@@ -1,5 +1,6 @@
 package ${basePackage}.controller;
 
+import ${basePackage}.common.base.BaseController;
 import ${basePackage}.common.model.Result;
 import ${basePackage}.common.utils.HttpResult;
 import ${basePackage}.model.${modelNameUpperCamel};
@@ -16,7 +17,7 @@ import java.util.List;
 */
 @RestController
 @RequestMapping("${baseRequestMapping}")
-public class ${modelNameUpperCamel}Controller {
+public class ${modelNameUpperCamel}Controller extends BaseController {
 
     @Resource
     private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
@@ -50,7 +51,7 @@ public class ${modelNameUpperCamel}Controller {
         PageHelper.startPage(page, size);
         List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
         PageInfo pageInfo = new PageInfo(list);
-        return HttpResult.success(pageInfo);
+        return HttpResult.success(listPattern(pageInfo));
     }
 
 }

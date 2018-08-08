@@ -36,7 +36,7 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCodeByCustomModelName("t_user","User", 1);
+        genCodeByCustomModelName("t_user","User", 0);
     }
 
     /**
@@ -67,7 +67,7 @@ public class CodeGenerator {
 
     public static void genModelAndMapper(String tableName, String modelName, Integer flag) {
         Context context = new Context(ModelType.FLAT);
-        context.setId("Potato");
+        context.setId("cyberunner");
         context.setTargetRuntime("MyBatis3Simple");
         context.addProperty(PropertyRegistry.CONTEXT_BEGINNING_DELIMITER, "`");
         context.addProperty(PropertyRegistry.CONTEXT_ENDING_DELIMITER, "`");
@@ -217,7 +217,6 @@ public class CodeGenerator {
 
     private static String tableNameConvertUpperCamel(String tableName) {
         return CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, tableName.toLowerCase());
-
     }
 
     private static String tableNameConvertMappingPath(String tableName) {
